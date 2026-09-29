@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f2df">
+  <meta name="description" content="LearningDex 的三份真实视频学习笔记，点击即可在线阅读 PDF。">
+  <title>学习笔记 · LearningDex</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+      color: #24231f;
+      background: #f8f2df;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; }
+    a { color: inherit; }
+    .shell { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    .topbar {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #d8d0b9;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 750; letter-spacing: -.025em; }
+    .brand-mark { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 11px; background: #24231f; color: #fff; font-size: 14px; }
+    .github {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #bdb5a1;
+      border-radius: 50%;
+      transition: background .18s ease, transform .18s ease;
+    }
+    .github img { width: 22px; height: 22px; }
+    .github:hover, .github:focus-visible { background: #eee5cb; transform: translateY(-2px); }
+    .github:focus-visible, .note:focus-visible { outline: 3px solid #24231f; outline-offset: 4px; }
+    .hero { padding: clamp(54px, 8vw, 110px) 0 55px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr); gap: 40px; align-items: end; }
+    .eyebrow { margin: 0 0 21px; font-size: 12px; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 0; max-width: 750px; font-size: clamp(40px, 5vw, 68px); line-height: 1.16; letter-spacing: -.055em; }
+    .hero-copy { margin: 0 0 5px; max-width: 360px; color: #5c594f; font-size: 16px; line-height: 1.8; }
+    .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-top: 1px solid #d8d0b9; padding: 20px 0 22px; }
+    .section-heading h2 { margin: 0; font-size: 17px; letter-spacing: -.02em; }
+    .section-heading span { color: #777264; font-size: 13px; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .note {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
+      background: #fffdf8;
+      border: 1px solid #ded6c1;
+      border-radius: 16px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(52, 45, 28, .045);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .note:hover { transform: translateY(-5px); border-color: #b8aa89; box-shadow: 0 17px 32px rgba(52, 45, 28, .11); }
+    .cover { height: 235px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 22px; }
+    .cover::after { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(#29262010 .7px, transparent .7px); background-size: 8px 8px; }
+    .cover-top, .cover-bottom { z-index: 1; font-size: 11px; font-weight: 700; letter-spacing: .11em; }
+    .cover-top { display: flex; justify-content: space-between; }
+    .texture { background: #d8ddc7; }
+    .texture svg { position: absolute; width: 88%; height: 68%; left: 6%; top: 16%; }
+    .computer { background: #d8dfdc; }
+    .desktop-window { position: absolute; left: 15%; top: 23%; width: 70%; height: 57%; border: 2px solid #354640; border-radius: 8px; background: #eef2ed; box-shadow: 11px 12px 0 #849d8b; }
+    .desktop-window::before { content: "●  ●  ●"; display: block; height: 24px; padding-left: 11px; border-bottom: 2px solid #354640; color: #354640; font-size: 9px; line-height: 23px; letter-spacing: 4px; }
+    .desktop-window span { display: block; margin: 25px auto 0; width: 60%; padding: 8px; background: #354640; color: white; text-align: center; font-size: 11px; font-weight: 700; }
+    .prompt { background: #e2d9cd; }
+    .prompt-sheet { position: absolute; left: 19%; top: 19%; width: 65%; height: 69%; transform: rotate(-6deg); border: 2px solid #5c4d47; background: #faf5ec; box-shadow: 12px 11px 0 #bbab9d; padding: 28px 21px; }
+    .prompt-sheet span { display: block; height: 5px; margin-bottom: 12px; background: #9e8d82; border-radius: 3px; }
+    .prompt-sheet span:nth-child(2) { width: 72%; }
+    .prompt-sheet span:nth-child(3) { width: 86%; }
+    .prompt-sheet span:nth-child(4) { width: 54%; background: #5c4d47; }
+    .note-body { display: flex; flex: 1; flex-direction: column; padding: 22px; }
+    .note-kicker { margin: 0 0 12px; color: #625f56; font-size: 12px; font-weight: 700; }
+    .note-body h3 { margin: 0 0 11px; font-size: 18px; line-height: 1.5; letter-spacing: -.025em; }
+    .note-body p { margin: 0; color: #67645a; font-size: 13px; line-height: 1.7; }
+    .read { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: auto; padding-top: 30px; font-size: 13px; font-weight: 750; color: #24231f; }
+    .read span:last-child { display: grid; place-items: center; width: 31px; height: 31px; border: 1px solid #bdb5a1; border-radius: 50%; font-size: 18px; line-height: 1; }
+    footer { display: flex; justify-content: space-between; gap: 16px; margin: 76px 0 33px; border-top: 1px solid #d8d0b9; padding-top: 21px; color: #777264; font-size: 12px; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 23px; }
+      .hero-copy { max-width: 560px; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 600px) {
+      .shell { width: min(100% - 32px, 420px); }
+      .topbar { min-height: 76px; }
+      .hero { padding: 55px 0 44px; }
+      .grid { grid-template-columns: 1fr; }
+      .cover { height: 215px; }
+      .section-heading span { display: none; }
+      footer { margin-top: 52px; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .note, .github { transition: none; }
+      .note:hover, .github:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="./index.html" aria-label="LearningDex 首页"><span class="brand-mark">LD</span><span>LearningDex</span></a>
+      <a class="github" href="https://github.com/sapluka/LearningDex" target="_blank" rel="noopener noreferrer" aria-label="查看 LearningDex GitHub 仓库" title="GitHub 仓库"><img src="./assets/github.svg" alt=""></a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div><p class="eyebrow">LearningDex / Video Notes</p><h1 id="page-title">把视频留成<br>可以慢慢读的笔记。</h1></div>
+        <p class="hero-copy">从视频中整理出的三份真实学习文档。选一篇打开 PDF，在浏览器里直接阅读图文笔记。</p>
+      </section>
+
+      <section aria-labelledby="notes-title">
+        <div class="section-heading"><h2 id="notes-title">示例文档</h2><span>03 篇 · 点击卡片在线阅读 PDF</span></div>
+        <div class="grid">
+          <a class="note" href="./pdfs/texture-mapping.pdf" target="_blank" rel="noopener" aria-label="在线阅读 PDF：纹理映射续讲：重心坐标插值与纹理过滤方法">
+            <div class="cover texture"><div class="cover-top"><span>01 / 图形学</span><span>PDF</span></div>
+              <svg viewBox="0 0 320 160" aria-hidden="true"><polygon points="37,129 161,22 286,129" fill="none" stroke="#344a35" stroke-width="2"/><line x1="161" y1="22" x2="178" y2="91" stroke="#344a35" stroke-width="1.5"/><line x1="37" y1="129" x2="178" y2="91" stroke="#344a35" stroke-width="1.5"/><line x1="286" y1="129" x2="178" y2="91" stroke="#344a35" stroke-width="1.5"/><circle cx="178" cy="91" r="8" fill="#a26040"/><circle cx="37" cy="129" r="4" fill="#344a35"/><circle cx="161" cy="22" r="4" fill="#344a35"/><circle cx="286" cy="129" r="4" fill="#344a35"/></svg>
+              <div class="cover-bottom">BARYCENTRIC / TEXTURE</div>
+            </div>
+            <div class="note-body"><div class="note-kicker">GAMES101 · 纹理映射</div><h3>纹理映射续讲：重心坐标插值与纹理过滤方法</h3><p>理解三角形内部的属性插值，以及纹理放大、缩小与过滤。</p><div class="read"><span>在线阅读 PDF</span><span aria-hidden="true">↗</span></div></div>
+          </a>
+
+          <a class="note" href="./pdfs/computer-use.pdf" target="_blank" rel="noopener" aria-label="在线阅读 PDF：【闪客】Computer Use 是什么？它真的有在看你的屏幕吗？可能和你想的不太一样...">
+            <div class="cover computer"><div class="cover-top"><span>02 / AI 工具</span><span>PDF</span></div><div class="desktop-window" aria-hidden="true"><span>CLI · API · GUI</span></div><div class="cover-bottom">COMPUTER USE / WORKFLOW</div></div>
+            <div class="note-body"><div class="note-kicker">Computer Use · 工具链</div><h3>【闪客】Computer Use 是什么？它真的有在看你的屏幕吗？可能和你想的不太一样...</h3><p>从脚本、接口到屏幕操作，梳理 AI 实际如何使用电脑。</p><div class="read"><span>在线阅读 PDF</span><span aria-hidden="true">↗</span></div></div>
+          </a>
+
+          <a class="note" href="./pdfs/prompt-engineering.pdf" target="_blank" rel="noopener" aria-label="在线阅读 PDF：提示词工程 [02-Raw/26生成式软件工程/NJU]">
+            <div class="cover prompt"><div class="cover-top"><span>03 / 软件工程</span><span>PDF</span></div><div class="prompt-sheet" aria-hidden="true"><span></span><span></span><span></span><span></span></div><div class="cover-bottom">PROMPT / CONTEXT</div></div>
+            <div class="note-body"><div class="note-kicker">NJU · 生成式软件工程</div><h3>提示词工程 [02-Raw/26生成式软件工程/NJU]</h3><p>从对话框里的提示词出发，理解模型收到的完整上下文。</p><div class="read"><span>在线阅读 PDF</span><span aria-hidden="true">↗</span></div></div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer><span>LearningDex · 视频学习笔记示例</span><span>无需登录；PDF 由浏览器直接打开。</span></footer>
+  </div>
+</body>
+</html>
