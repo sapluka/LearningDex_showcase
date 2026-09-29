@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f2df">
-  <meta name="description" content="LearningDex 的三份真实视频学习笔记，点击即可在线阅读 PDF。">
+  <meta name="description" content="LearningDex 的四份真实视频学习笔记，点击即可在线阅读 PDF。">
   <title>学习笔记 · LearningDex</title>
   <style>
     :root {
@@ -45,7 +45,7 @@
     .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-top: 1px solid #d8d0b9; padding: 20px 0 22px; }
     .section-heading h2 { margin: 0; font-size: 17px; letter-spacing: -.02em; }
     .section-heading span { color: #777264; font-size: 13px; }
-    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
     .note {
       display: flex;
       flex-direction: column;
@@ -75,6 +75,10 @@
     .prompt-sheet span:nth-child(2) { width: 72%; }
     .prompt-sheet span:nth-child(3) { width: 86%; }
     .prompt-sheet span:nth-child(4) { width: 54%; background: #5c4d47; }
+    .architecture { background: #d9dbc9; }
+    .architecture-steps { position: absolute; inset: 26% 8% auto; display: flex; align-items: center; gap: 10px; }
+    .architecture-steps span { flex: 1; display: grid; place-items: center; min-width: 0; height: 72px; border: 2px solid #42483c; border-radius: 8px; background: #f5f4e9; color: #42483c; font-size: 14px; font-weight: 750; box-shadow: 5px 6px 0 #9ca58f; }
+    .architecture-steps b { font-size: 20px; color: #42483c; }
     .note-body { display: flex; flex: 1; flex-direction: column; padding: 22px; }
     .note-kicker { margin: 0 0 12px; color: #625f56; font-size: 12px; font-weight: 700; }
     .note-body h3 { margin: 0 0 11px; font-size: 18px; line-height: 1.5; letter-spacing: -.025em; }
@@ -112,11 +116,11 @@
     <main>
       <section class="hero" aria-labelledby="page-title">
         <div><p class="eyebrow">LearningDex / Video Notes</p><h1 id="page-title">把视频留成<br>可以慢慢读的笔记。</h1></div>
-        <p class="hero-copy">从视频中整理出的三份真实学习文档。选一篇打开 PDF，在浏览器里直接阅读图文笔记。</p>
+        <p class="hero-copy">从视频中整理出的四份真实学习文档。选一篇打开 PDF，在浏览器里直接阅读图文笔记。</p>
       </section>
 
       <section aria-labelledby="notes-title">
-        <div class="section-heading"><h2 id="notes-title">示例文档</h2><span>03 篇 · 点击卡片在线阅读 PDF</span></div>
+        <div class="section-heading"><h2 id="notes-title">示例文档</h2><span>04 篇 · 点击卡片在线阅读 PDF</span></div>
         <div class="grid">
           <a class="note" href="./pdfs/texture-mapping.pdf" target="_blank" rel="noopener" aria-label="在线阅读 PDF：纹理映射续讲：重心坐标插值与纹理过滤方法">
             <div class="cover texture"><div class="cover-top"><span>01 / 图形学</span><span>PDF</span></div>
@@ -134,6 +138,11 @@
           <a class="note" href="./pdfs/prompt-engineering.pdf" target="_blank" rel="noopener" aria-label="在线阅读 PDF：提示词工程 [02-Raw/26生成式软件工程/NJU]">
             <div class="cover prompt"><div class="cover-top"><span>03 / 软件工程</span><span>PDF</span></div><div class="prompt-sheet" aria-hidden="true"><span></span><span></span><span></span><span></span></div><div class="cover-bottom">PROMPT / CONTEXT</div></div>
             <div class="note-body"><div class="note-kicker">NJU · 生成式软件工程</div><h3>提示词工程 [02-Raw/26生成式软件工程/NJU]</h3><p>从对话框里的提示词出发，理解模型收到的完整上下文。</p><div class="read"><span>在线阅读 PDF</span><span aria-hidden="true">↗</span></div></div>
+          </a>
+
+          <a class="note" href="./pdfs/requirements-architecture.pdf" target="_blank" rel="noopener" aria-label="在线阅读 PDF：需求和架构（2）：复杂性、抽象与可生长的架构">
+            <div class="cover architecture"><div class="cover-top"><span>04 / 软件工程</span><span>PDF</span></div><div class="architecture-steps" aria-hidden="true"><span>需求</span><b>→</b><span>抽象</span><b>→</b><span>架构</span></div><div class="cover-bottom">COMPLEXITY / ARCHITECTURE</div></div>
+            <div class="note-body"><div class="note-kicker">NJU · 生成式软件工程</div><h3>需求和架构（2）：复杂性、抽象与可生长的架构</h3><p>从本质复杂性与偶然复杂性出发，理解抽象、层次分解与可生长的架构。</p><div class="read"><span>在线阅读 PDF</span><span aria-hidden="true">↗</span></div></div>
           </a>
         </div>
       </section>
